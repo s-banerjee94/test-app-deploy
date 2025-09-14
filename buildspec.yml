@@ -1,0 +1,29 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: 17
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - echo Build started on `date`
+      - echo Testing Maven wrapper...
+      - chmod +x mvnw
+  build:
+    commands:
+      - echo Build phase started on `date`
+      - echo Building the Spring Boot application...
+      - ./mvnw clean package -DskipTests
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Listing target directory contents...
+      - ls -la target/
+
+artifacts:
+  files:
+    - target/*.jar
+    - appspec.yml
+    - scripts/**/*
+  discard-paths: no

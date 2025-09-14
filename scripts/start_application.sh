@@ -3,9 +3,6 @@
 # Start Spring Boot application
 echo "Starting Spring Boot application..."
 
-# Set Java home if not already set
-export JAVA_HOME=/usr/lib/jvm/java-17-amazon-corretto
-
 # Application directory
 APP_DIR="/opt/spring-app"
 JAR_FILE="$APP_DIR/test-app.jar"

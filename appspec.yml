@@ -3,6 +3,12 @@ os: linux
 files:
   - source: target/test-app.jar
     destination: /opt/spring-app/
+  - source: scripts/
+    destination: /opt/spring-app/scripts/
+permissions:
+  - object: /opt/spring-app/scripts/
+    pattern: "**"
+    mode: 755
 hooks:
   ApplicationStop:
     - location: scripts/stop_application.sh
